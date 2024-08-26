@@ -1,5 +1,5 @@
 
-<h1>Cat Tool </h1>
+<h1>Cat_Tool </h1>
 
 Cat Tool is a straightforward command-line application crafted in Java.
 This tool is build as part of <a href="https://codingchallenges.fyi/challenges/challenge-cat">coding challenges</a> ,to build your own version of the Cat tool.
@@ -16,7 +16,7 @@ This tool is in java , so please ensure that you have latest java version instal
 
 step 1: git clone https://github.com/priyapatelsp/Cat_Tool.git
 
-step 2: click and run the cat_tool.java file to start the project
+step 2: click and run the Cat_tool.java file to start the project
 
 Step 3: As soon as the java program run ,you would be provided multiple options get started , provide the instruction choosing from the list of instruction provided.
 
