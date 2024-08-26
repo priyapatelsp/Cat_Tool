@@ -11,6 +11,7 @@ public class Cat_tool {
 
     public static void main(String[] args) {
         System.out.println("WELCOME TO CAT TOOL :");
+
         while (true) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -26,13 +27,12 @@ public class Cat_tool {
 
 
             try {
-                // Read the input string from the user
+
                 String commandLine = reader.readLine();
                 if (commandLine.equalsIgnoreCase("exit")) {
                     System.out.println("Thank you for using this program ");
                     break;
                 }
-                // Parse and execute the command
                 executeCommand(commandLine);
             } catch (IOException e) {
                 System.err.println("Error reading input: " + e.getMessage());
@@ -41,20 +41,18 @@ public class Cat_tool {
     }
 
                 private static void executeCommand(String commandLine) {
-                    // Split the command line into parts
+
                     String[] commandParts = commandLine.split("\\s+");
                     if (commandParts.length == 0) {
                         System.err.println("No command provided.");
                         return;
                     }
 
-                    // Check if the command is for 'head' functionality
                     if (commandParts[0].equals("head") && commandParts.length > 1) {
                         handleHeadCommand(commandParts);
                     } else if (commandParts[0].equals("cat")) {
                         handleCatCommand(commandParts);
                     } else {
-                        // Otherwise, assume it's a list of files to concatenate
                         List<String> files = new ArrayList<>();
                         for (String part : commandParts) {
                             files.add(part);
@@ -64,7 +62,6 @@ public class Cat_tool {
                 }
 
                 private static void handleHeadCommand(String[] commandParts) {
-                    // Validate and parse the 'head' command
                     if (commandParts.length < 3 || !commandParts[1].equals("-n")) {
                         System.err.println("Usage: head -n <number> <file1> <file2> ...");
                         return;
@@ -78,18 +75,15 @@ public class Cat_tool {
                         return;
                     }
 
-                    // Collect files to process
                     List<String> files = new ArrayList<>();
                     for (int i = 3; i < commandParts.length; i++) {
                         files.add(commandParts[i]);
                     }
 
-                    // Print the head of each file
                     printFileHead(files, numberOfLines);
                 }
 
                 private static void handleCatCommand(String[] commandParts) {
-                    // Validate and parse the 'cat' command
                     if (commandParts.length < 2 || !commandParts[1].equals("-n")) {
                         System.err.println("Usage: cat -n [-b] <file1> <file2> ...");
                         return;
@@ -102,13 +96,10 @@ public class Cat_tool {
                         startIdx = 3;
                     }
 
-                    // Collect files to process
                     List<String> files = new ArrayList<>();
                     for (int i = startIdx; i < commandParts.length; i++) {
                         files.add(commandParts[i]);
                     }
-
-                    // Number the lines in each file
                     numberLines(files, numberNonBlankOnly);
                 }
 
